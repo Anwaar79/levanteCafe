@@ -1,0 +1,158 @@
+{% extends 'base2.html' %}
+{%load static%}
+{% block content %}
+<head>
+<title>Staff</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body {
+  margin: 0;
+  background-color: black;
+  background-size: cover;
+}
+
+.staff {
+  position: relative;
+}
+
+.staff .header {
+  padding: 100px;
+  height: 90vh;
+  text-align: center;
+  color: #c1b198;
+  font-size: 48px;
+  position: relative;
+  z-index: 2;
+}
+
+h1 {
+  margin: 0;
+}
+
+.slideshow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.slideshow img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.staff .header2 {
+  padding: 50px;
+  text-align: center;
+  color: black;
+  position: relative;
+  z-index: 2;
+}
+
+.box-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.box {
+  margin: 10px;
+  width: 300px;
+  flex-grow: 1;
+}
+
+.box img:hover {
+  filter: hue-rotate(-20deg);
+}
+
+.box img {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 1000px) {
+  .staff .header {
+    font-size: 50px;
+    padding: 20px;
+  }
+  .box {
+    margin: 5px;
+    width: 100px;
+  }
+}
+</style>
+</head>
+<body>
+<div class="staff">
+  <div class="header">
+    <h1>Welcome {{user.staff_name}}</h1>
+  </div>
+  <div class="slideshow">
+    <img src="{% static '/images/image1.jpg' %}" alt="Slide 1">
+    <img src="{% static '/images/image2.jpg' %}" alt="Slide 2">
+    <img src="{% static '/images/image3.png' %}" alt="Slide 3">
+  </div>
+  <div class="header2">
+    <div class="box-container">
+      <div class="box">
+        <a href="{% url 'staff:update' staff_name=user.staff_name staff_password=user.staff_password %}">
+          <img src="{% static '/images/user update.png' %}" alt="Mountains" width="600" height="400">
+        </a>
+      </div>
+      <div class="box">
+        <a href="{% url 'menu:list' %}">
+          <img src="{% static '/images/update.png' %}" alt="update-menu" width="600" height="200">
+        </a>
+      </div>
+      <div class="box">
+        <a href="{% url 'staff:add' %}">
+          <img src="{% static '/images/add.png' %}" alt="add-user" width="500" height="300">
+        </a>
+      </div>
+      <div class="box">
+        <a href="{% url 'staff:table' %}">
+          <img src="{% static '/images/add table.png' %}" alt="add-table" width="600" height="400">
+        </a>
+      </div>
+      <div class="box">
+        <a href="{% url 'staff:comments' %}">
+          <img src="{% static '/images/comments.png' %}" alt="add-order" width="600" height="400">
+        </a>
+      </div>
+      <div class="box">
+        <a href="{% url 'orders:add' %}">
+          <img src="{% static '/images/order.png' %}" alt="add-order" width="600" height="400">
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  const slideshowImages = document.querySelectorAll('.slideshow img');
+  let currentImageIndex = 0;
+
+  function showNextImage() {
+    slideshowImages[currentImageIndex].style.opacity = 0;
+    currentImageIndex = (currentImageIndex + 1) % slideshowImages.length;
+    slideshowImages[currentImageIndex].style.opacity = 1;
+  }
+
+  setInterval(showNextImage, 3000); // Change image every 3 seconds
+
+</script>
+
+</body>
+{% endblock %}

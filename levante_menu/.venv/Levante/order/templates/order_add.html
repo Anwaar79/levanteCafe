@@ -1,0 +1,49 @@
+{% extends 'base2.html' %}
+{%load static%}
+{% block content %}
+<head>
+    <title>Add Order</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <style>
+      body {
+            font-family: Arial, sans-serif;
+            background-image: linear-gradient(
+#1f1f20, #131314);
+
+            margin: 0;
+        }
+    </style>
+    
+</head>
+<body>
+<div class="order">
+  <h1>Add Order</h1>
+  <form method="POST">
+    {% csrf_token %}
+    <div class="col-75">
+        <label class="label" for="{{ form.table_choice.id_for_label }}">Table Number</label>
+        {{ form.table_choice }}
+      </div>
+      <label class="label" for="{{ form.items.id_for_label }}">Menu Items</label>
+   
+    <div class="checkbox-container">
+      {% for checkbox in form.items %}
+        <div class="checkbox-column">
+          {{ checkbox }}
+          
+        </div>
+      {% endfor %}
+    </div>
+    <button type="submit" class="submit-btn">Submit</button>
+  </form>
+</div>
+</body>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+   
+
+{% endblock %}

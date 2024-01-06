@@ -1,0 +1,162 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Levante Cafe and Resturant</title>
+ <style>
+
+     .navigation {
+        background-color: #0f0e0e;
+
+            overflow: hidden;
+            width: 100%;
+            
+        }
+        
+        .navigation img {
+            height: 50px;
+            padding: 2px;
+            margin-left: 2%;
+        }
+        
+        .navigation a {
+            float: right;
+            color: #a7772b;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .navigation a:hover {
+            color: #6a4c1c;
+        }
+
+        /* Footer styles */
+ 
+
+.footer img {
+    height: 30px;
+
+}
+
+.bigger img{
+    height:80px;
+}
+
+.footer {
+    
+    background-color: #0f0e0e;
+    color: #a7772b;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer .column {
+    width: calc(33.33% - 20px);
+    margin-bottom: 20px;
+}
+
+.footer .column h4 {
+    margin: 0;
+    padding-bottom: 10px;
+    font-size: 20px;
+}
+
+.footer .column ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer .column ul li {
+    margin-bottom: 5px;
+}
+
+.footer .column ul li a {
+    color: #a7772b;
+    text-decoration: none;
+}
+
+.footer .column ul li a:hover {
+    color: #6a4c1c;
+}
+
+.footer .copyright {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .footer .column {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+}
+
+ </style>
+</head>
+<body>
+  
+    <header>
+        <div class="navigation">
+            <!-- Logo on the left -->
+            <img src="{% static '/images/logo.png' %}" alt="Logo">
+            <!-- Links on the right -->
+            <a href="{% url 'contact' %}">Contact</a>
+            <a href="{% url 'about' %}">About</a>
+            <a href="{% url 'menu' %}">Menu</a>
+            <a href="{% url 'home' %}">Home</a>
+        </div>
+    </header>
+    
+
+    <main>
+       
+        {% block content %}
+        {% endblock %}
+    </main>
+    
+
+    <footer class="footer">
+        <div class="column bigger">
+            <img src="{% static '/images/logo.png' %}" alt="Logo">
+        </div>
+        <div class="column">
+            <h4>Working Hours</h4>
+            <ul>
+                <li>All week Days</li>
+                <li>08:00 AM - 02:00 AM</li>
+            </ul>
+        </div>
+        <div class="column">
+            <h4>Contact</h4>
+            <ul>
+                <li>
+                    <img src="{% static '/images/icon1.png' %}" alt="Icon 1">
+                    <a href="https://www.google.com/maps/place/Levante+Cafe/@26.2862414,50.6632916,15z/data=!4m2!3m1!1s0x0:0xd3866976af9c66af?sa=X&ved=2ahUKEwjhqMenr4aDAxVF7rsIHcOqDGAQ_BJ6BAhFEAA">AMWAJ LAGOON- GF, CAR PARK 7 & 8,GATE 8</a>
+                </li>
+                <li>
+                    <img src="{% static '/images/icon2.png' %}" alt="Icon 2">
+                    <a href="info@levantecafe.com">info@levantecafe.com</a>
+                </li>
+                <li>
+                    <img src="{% static '/images/icon3.png' %}" alt="Icon 3">
+                    <a href="tel:+97337300040">+973 3730 0040</a>
+                </li>
+            </ul>
+        </div>
+        <div class="copyright">
+            Copyright © 2022 Levante Restauant & Cafe. All Rights Reserved.
+        </div>
+    </footer>
+    
+
+</body>
+</html>

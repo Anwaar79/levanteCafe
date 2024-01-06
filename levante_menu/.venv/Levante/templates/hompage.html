@@ -1,0 +1,317 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block content %}
+    <head>
+        <title>Home page</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|Poppins">
+<style>
+body {
+  margin: 0;
+  background-color: #1a1818;
+  
+}
+
+/* Style the header */
+.home .header {
+  background-image: url("{% static '/images/black-marbled-surface.jpg' %}");
+  padding: 50px;
+  background-size: cover;
+  text-align: left;
+  
+  
+ 
+}
+.home .header3 {
+  padding: 50px;
+  border-radius:8px;
+  text-align: center;
+  color: black;
+    background: rgba(19, 19, 20, 0.9);
+
+}
+
+.home .header-content{
+margin-top:5px;
+padding-bottom:15px;
+margin-left:-25px;
+
+}
+.home h1{
+line-height: 0;
+}
+.home p{
+ color: #a7772b;
+ text-align: left;
+ font-size:14px;
+}
+
+.cal h1{
+font-size: 25px;
+color: #c1b198;
+}
+
+.cal p{
+font-size: 16px;
+color: #c1b198;
+}
+
+.home .thin{
+  font-family: "Courier New", Courier, monospace;
+  font-size: 30px;
+  color: #a7772b;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.home .bold{
+
+  font-family: 'Abril Fatface', serif;
+  font-size: 82px;  
+  color: #a7772b;
+  text-transform: uppercase;
+  text-align: left;
+}
+.more{
+ float:left;
+ color: #a7772b; 
+  border: 3px solid #a7772b;
+   padding: 7px 32px;
+  text-align: center;
+  text-decoration: none;
+ 
+  font-size: 16px;
+  background: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.more a{
+ color: #a7772b; 
+  text-decoration: none;
+}
+.more:hover a{
+
+ color: rgb(20, 20, 21); 
+
+}
+.more:hover{
+background-color:#a7772b;
+
+
+}
+
+.home .image-box {
+  position: relative;
+  float: right;
+  margin-top: -30px;
+  padding: 0px 0px;
+  margin-right: -35px;
+}
+
+.home .image-box img {
+  width: 300px;
+  height: 300px;
+}
+
+.decor1 {
+  float: right;
+  position: absolute;
+  right: 25%;
+  top: 50%;
+  margin-right: 0;
+  margin-top: -30px;
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+}
+
+.decor1 img {
+  width: 200px;
+  height: 80px;
+}
+
+.decor2 {
+  float: right;
+  position: absolute;
+  right: -1%;
+  top: 20%;
+  margin-right: 0;
+  margin-top: -30px;
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+}
+
+.decor2 img {
+  width: 170px;
+  height: 170px;
+}
+
+
+@media (max-width: 614px) {
+    .home .header {
+    font-size: 20px;
+    padding: 50px;
+  }
+  
+  .home .image-box {
+    position: relative;
+    float: right;
+    margin-top: -80px; 
+    padding: 0;
+    padding-bottom:30px;
+    margin-right: 20px;
+  }
+
+.decor1 {
+  right: 50%;
+  top:45%;
+}
+.decor2 {
+
+    top: 15%;
+    right:10%;
+}
+.home .header-content{
+margin-top:270px;
+padding-bottom:20px;
+margin-left:-25px;
+
+}
+    
+}
+
+@media ( min-width: 1100px) {
+.home .header {
+font-size: 20px;
+padding: 70px;
+}
+
+.decor1 {
+   right: 15%;
+   top: 55%;
+ }
+
+ .decor2 {
+
+right:2%;
+}
+
+}
+.showmore-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px; /* Adjust this value as needed */
+  padding-bottom: 20px;
+}
+
+.showmore {
+  background: none;
+  border: none;
+  color: white;
+  padding: 2px 90px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.showmore a{
+
+text-decoration: none;
+
+}
+
+.showmore img{
+
+width:30px;
+height:30px;
+
+}
+
+
+.showmore:hover img {
+  animation: updown 5s infinite;
+}
+
+@keyframes updown {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+
+
+</style>
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    </head>
+    
+    <body>
+        
+        <div class="home">
+            <div class="header">
+              <div class="header3">
+            
+              <div class="image-box">
+                <img src="https://assets-global.website-files.com/6305f7d600c9842969920a58/64123d7667b3f1964fc0536b_Chicken%20Tikka%20Masala.png" alt="">
+              </div>
+            
+              <div class="decor2">
+                <img src="https://static.vecteezy.com/system/resources/previews/010/985/147/original/slice-of-red-fresh-tomato-isolated-cut-out-png.png" alt="">
+              </div>
+            
+              <div class="decor1">
+                <img src="https://gallery.yopriceville.com/var/albums/Free-Clipart-Pictures/Spring-PNG/Green_Leaf_PNG_Clipart.png?m=1571899598" alt="">
+              </div>
+            
+              <div class="header-content">
+              <h1 class="thin">A passion in a</h1>
+              <h1 class="bold">Plate</h1>
+              <p>At Levante Café and Restaurant, we believe <br>that cooking with passion results in art on a <br>plate. Every dish is lovingly prepared to share <br>our joy of food with guests through flavors <br> artfully presented.</p>
+              <button class="more"><a href="{% url 'about' %}">Read more</a></button>
+              </div>
+              
+            </div>
+              
+            </div>
+
+            </div>
+            <div class="menu">
+                <div class="menu-container">
+                    <div class="group-column">
+                      <div class="group-items">
+                        {% for item in menu|slice:":4" %}
+                          <div class="gallery">
+                            <div class="cal">
+                              <h1>{{ item.Cal }}</h1>
+                              <p>CAL.</p>
+                            </div>
+                            <img src="{{ item.image.url }}" alt="{{ item.title }}">
+                            <div class="desc">
+                              <h1>{{ item.title }}</h1>
+                              <p class="description">{{ item.description }}</p>
+                              <p class="price">{{ item.price }} BD</p>
+                            </div>
+                          </div>
+                        {% endfor %}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="showmore-container">
+                    <button class="showmore">
+                        <a href="{%url 'menu'%}">
+                      <img src="https://freepngimg.com/save/131101-down-images-arrow-free-clipart-hq/512x512" alt="">
+                    </a>
+                    </button>
+                  </div>
+             </div>
+    
+
+    </body>
+{% endblock %}

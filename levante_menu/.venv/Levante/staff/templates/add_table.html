@@ -1,0 +1,145 @@
+{% extends 'base2.html' %}
+{%load static%}
+{% block content %}
+<head>
+<title>Add Table</title>
+<style>
+body {
+  background-image:url("{% static '/images/black-marbled-surface.jpg' %}");
+         background-size: cover;
+         align-content: center;
+         justify-content: center;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.table-container {
+  border-radius: 5px;
+  background-image: linear-gradient(
+#1f1f20, #131314);
+  padding: 20px;
+  max-width: 400px;
+  margin: auto;
+  margin-top: 100px;
+}
+
+.table-container input[type=text] {
+  width: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+  border: none;
+  background: none;
+  color: #a7772b;
+  border-bottom: 2px solid #a7772b;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.table-container label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  color: #a7772b;
+  font-weight: bold;
+}
+
+.table-container input[type=submit] {
+  background: none;
+  color: #a7772b;
+  padding: 12px 20px;
+  border: 2px solid #a7772b;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.table-container input[type=submit]:hover {
+  background-color: #a7772b;
+  color: navy;
+}
+
+.table-container .row {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.table-container .col-1 {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.table-container .col-1 label {
+  margin-right: 10px;
+}
+
+.table-container .col-2 {
+  flex: 2;
+}
+
+@media screen and (max-width: 600px) {
+  .table-container {
+    margin-top: 50px;
+  }
+
+  .table-container .row {
+    flex-direction: column;
+  }
+
+  .table-container .col-1 {
+    margin-bottom: 10px;
+  }
+
+  .table-container input[type=submit] {
+    float: none;
+  }
+
+  .table-container .col-1 label {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
+</style>
+</head>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<body>
+<div class="table-container">
+  <form method="POST">
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-1">
+        <label for="{{ form.table_name.id_for_label }}">Table Name</label>
+      </div>
+      <div class="col-2">
+        {{ form.table_name }}
+      </div>
+    </div>
+    <div class="row">
+      <input type="submit" value="Submit">
+    </div>
+  </form>
+</div>
+</body>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+   
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+   
+
+{% endblock %}

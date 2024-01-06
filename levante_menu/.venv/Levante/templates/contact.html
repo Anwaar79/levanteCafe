@@ -1,0 +1,189 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block content %}
+<html>
+    <head>
+        <title>Contact</title>
+        <style>
+               body{
+                margin: 0;
+         background-image:url("{% static '/images/black-marbled-surface.jpg' %}");
+         background-size: cover;
+         align-content: center;
+         justify-content: center;
+        }
+.contact-container input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+  border: none;
+  background: none;
+  color: #a7772b;
+  border-bottom: 2px solid #a7772b;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.contact-container label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  color: #a7772b;
+}
+
+.contact-container input[type=submit] {
+  background: none;
+  color: #a7772b;
+  padding: 12px 20px;
+  border: 2px solid #a7772b;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+.contact-container input[type=submit]:hover {
+  background-color: #a7772b;
+  color: navy;
+}
+
+.contact-container {
+  border-radius: 5px;
+  background-image: linear-gradient(
+#1f1f20, #131314);
+  padding: 70px;
+  margin-left: 20%;
+  width: 50%;
+}
+
+.col-1 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-2 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.contact-container .row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.contact {
+  display: flex;
+  align-items: center; /* Align items vertically in the center */
+}
+
+.social {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #a7772b;
+  transform: rotate(40deg);
+  margin-right: 30px;
+}
+
+.social img {
+  transform: rotate(-41deg) translateY(8px);
+  filter: invert(25%) sepia(100%) saturate(400%) hue-rotate(4deg);
+  width: 25px;
+  height: 25px;
+}
+
+.social:hover {
+  background-color: #a7772b;
+}
+
+
+@media screen and (max-width: 600px) {
+  .col-1, .col-2, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+  .contact{
+    justify-content: center;
+    margin-top: 5%;
+    margin-right: -5%;
+
+  }
+
+  .contact-container {
+  padding: 20px;
+  width: 90%;
+  margin-left: 1%;
+}
+
+}
+
+        </style>
+    </head>
+    <body>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        
+        
+        <div class="contact-container">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-1">
+                        <label for="{{ form.name.id_for_label }}">Name</label>
+                    </div>
+                    <div class="col-2">
+                        {{ form.name }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1">
+                        <label for="{{ form.email.id_for_label }}">Email</label>
+                    </div>
+                    <div class="col-2">
+                        {{ form.email }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1">
+                        <label for="{{ form.message.id_for_label }}">Message</label>
+                    </div>
+                    <div class="col-2">
+                        {{ form.message }}
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <input type="submit" value="Submit">
+                    </div>
+                    <div class="row">
+                    <div class="contact">
+                        <div class="social"><a href="https://www.facebook.com/levanteamwaj/"><img src="https://cdn-icons-png.flaticon.com/512/59/59439.png" alt=""></a></div>
+                        <div class="social"><a href="https://www.instagram.com/levante_cafe1/"><img src="https://cdn-icons-png.flaticon.com/512/87/87390.png" alt=""></a></div>
+                        <div class="social"><a href="info@levantecafe.com"><img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-email-512.png" alt=""></a></div>
+                    </div>
+                </div>
+                </div>
+            </form>
+            <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </body>
+    {% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base2.html' %}
+{%load static%}
+{% block content %}
+<head>
+    <title>Comment Section</title>
+    <style>
+        body{
+  margin: 0;
+  background-image:url("{% static '/images/black-marbled-surface.jpg' %}");
+         background-size: cover;
+         align-content: center;
+         justify-content: center;
+        }
+        .comment-section {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+   
+    text-align: center;
+    color:#a7772b;
+}
+
+.comments {
+    margin-top: 20px;
+}
+
+.comment {
+    background-image: linear-gradient(
+#1f1f20, #131314);
+    padding: 10px;
+    margin-bottom: 15px;
+    color:#c1b198;
+}
+
+.comment h3 {
+    margin: 0;
+}
+
+.comment p {
+    margin-bottom: 5px;
+}
+    </style>
+</head>
+<body>
+    <div class="comment-section">
+        <h1>Comment Section</h1>
+        <div class="comments">
+            {% for comment in comments %}
+            <div class="comment">
+                <h3>{{ comment.name }}</h3>
+                <p>Email: {{ comment.email }}</p>
+                <p>{{ comment.message }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+{% endblock %}

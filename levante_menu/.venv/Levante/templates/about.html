@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{%load static%}
+{% block content %}
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+        <title>About</title>
+    </head>
+    <body id="about">
+        <div class="header">
+        <h1> ABOUT US</h1>
+<p> Welcome to Levante, Bahrain's hidden gem since 2022. We are a vibrant restaurant and cafe, blending Mediterranean and Middle Eastern flavors to create an unforgettable dining experience. Our talented chefs use locally sourced ingredients and aromatic spices to craft visually stunning dishes that are as delicious as they are unique. From succulent grilled meats to flavorful vegetarian options and indulgent desserts, each bite at Levante is a celebration of culinary artistry. Join us and let us take you on a gastronomic journey that will leave you wanting more.</p>
+<video id="myVideo" autoplay muted> <source src="{% static '/videos/video (2160p).mp4' type='video/mp4' %}"></video>
+</div>
+<script>
+
+var video = document.getElementById("myVideo");
+
+    video.addEventListener("timeupdate", function() {
+      if (video.currentTime >= 15) {
+        video.pause();
+      }
+    });</script>
+</body>
+
+    {% endblock %}
